@@ -10,6 +10,8 @@ COPY HelloWorld/ ./HelloWorld/
 WORKDIR /src/HelloWorld
 RUN ls -la 
 RUN dotnet restore 
+
+COPY . .
 RUN dotnet publish -c Release -o /app/publish
 
 FROM base AS final
