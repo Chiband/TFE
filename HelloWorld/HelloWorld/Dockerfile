@@ -5,6 +5,7 @@ WORKDIR /app
 EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:${DOTNET_VERSION}-alpine AS build
+WORKDIR /src
 COPY HelloWorld/ ./HelloWorld/
 WORKDIR /src/HelloWorld
 RUN ls -la 
