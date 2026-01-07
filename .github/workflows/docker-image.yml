@@ -9,6 +9,7 @@ on:
     branches: [ "main" ]
     paths:
       - 'HelloWorld/HelloWorld/**'
+  workflow_dispatch:
 
 permissions:
   contents: write
