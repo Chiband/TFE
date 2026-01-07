@@ -6,8 +6,8 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:${DOTNET_VERSION}-alpine AS build
 WORKDIR /src
-COPY HelloWorld/HelloWorld.csproj HelloWorld/
-RUN ls -la /src/HelloWorld
+COPY . .
+RUN ls -la /src
 RUN dotnet restore HelloWorld/HelloWorld.csproj
 RUN dotnet publish -c Release -o /app/publish
 
