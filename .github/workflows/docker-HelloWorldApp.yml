@@ -9,6 +9,7 @@ on:
     branches: [ "main" ]
     paths:
       - 'HelloWorld/HelloWorldApp/**' 
+  workflow_dispatch:   
 
 permissions:
   contents: write
@@ -66,7 +67,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./HelloWorld/HelloWorldApp/Dockerfile
+          file: ./HelloWorld/HelloWorldApp/DockerFile
           platforms: linux/amd64
           push: true
           tags: |
