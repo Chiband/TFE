@@ -5,10 +5,10 @@ WORKDIR /app
 EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:${DOTNET_VERSION}-alpine AS build
-WORKDIR /src
+WORKDIR /src/HelloWorld
 COPY . .
-RUN ls -la /src/HelloWorld/HelloWorld
-RUN dotnet restore /src/HelloWorld/HelloWorld/HelloWorld.csproj
+RUN ls -la /HelloWorld
+RUN dotnet restore /HelloWorld/HelloWorld.csproj
 RUN dotnet publish -c Release -o /app/publish
 
 FROM base AS final
