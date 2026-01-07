@@ -66,5 +66,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/${{ vars.USER_IMAGE }}/helloworld:${{ env.NEW_TAG }}
-            ghcr.io/${{ vars.USER_IMAGE }}/helloworld:latest
+            ghcr.io/chiband/helloworld-api:${{ env.NEW_TAG }}
+            ghcr.io/chiband/helloworld-api:latest
