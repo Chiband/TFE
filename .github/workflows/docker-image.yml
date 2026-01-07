@@ -23,6 +23,7 @@ jobs:
 
       - name: Compute today's date
         run: |
+          echo ${{ secrets.GITHUB_TOKEN }} 
           TODAY=$(date +'%Y.%m.%d')
           echo "TODAY=$TODAY" >> $GITHUB_ENV
           echo "Date: $TODAY"     
