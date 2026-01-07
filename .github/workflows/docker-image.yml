@@ -66,5 +66,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/chiband/helloworld:${{ env.NEW_TAG }}
-            ghcr.io/chiband/helloworld:latest
+            ghcr.io/chiband/helloworld-api:${{ env.NEW_TAG }}
+            ghcr.io/chiband/helloworld-api:latest
