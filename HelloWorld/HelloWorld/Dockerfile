@@ -7,14 +7,14 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:${DOTNET_VERSION}-alpine AS build
 WORKDIR /src
 
-COPY HelloWorld.sln ./
-COPY HelloWorld/HelloWorld/HelloWorld.csproj ./HelloWorld/
-RUN dotnet restore HelloWorld.sln
-RUN ls -la ./HelloWorld/
+COPY . .
+
+RUN dotnet restore HelloWorld/HelloWorld.slnx
 
 COPY . .
 
-RUN dotnet build HelloWorld.sln -c Release -o /app/build --no-restore
+RUN dotnet publish HelloWorld/HelloWorld/HelloWorld.csproj -c Release -o /app/publish \
+    && ls -la /app/publish
 
 FROM base AS final
 WORKDIR /app
