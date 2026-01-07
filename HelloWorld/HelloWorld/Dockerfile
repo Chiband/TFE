@@ -9,7 +9,8 @@ WORKDIR /src
 
 COPY HelloWorld/HelloWorld/HelloWorld.csproj ./HelloWorld/
 RUN dotnet restore ./HelloWorld/HelloWorld.csproj
-RUN dotnet publish -c Release -o /app/publish ./HelloWorld/HelloWorld/HelloWorld.csproj
+RUN Ls -la ./HelloWorld/
+RUN dotnet publish -c Release -o /app/publish HelloWorld/HelloWorld/HelloWorld.csproj
 
 FROM base AS final
 WORKDIR /app
