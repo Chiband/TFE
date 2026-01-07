@@ -23,7 +23,6 @@ jobs:
 
       - name: Compute today's date
         run: |
-          echo ${{ vars.USER_IMAGE }} 
           TODAY=$(date +'%Y.%m.%d')
           echo "TODAY=$TODAY" >> $GITHUB_ENV
           echo "Date: $TODAY"     
@@ -53,7 +52,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: chiband
+          username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }} 
 
       - name: Set up Docker Buildx
@@ -67,5 +66,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/${{ vars.USER_IMAGE }}/helloworld:${{ env.NEW_TAG }}
-            ghcr.io/${{ vars.USER_IMAGE }}/helloworld:latest
+            ghcr.io/${{ github.repository_owner }}/helloworld:${{ env.NEW_TAG }}
+            ghcr.io/${{ github.repository_owner }}/helloworld:latest
