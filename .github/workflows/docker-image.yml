@@ -3,8 +3,12 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
+    paths:
+     - 'HelloWorld/HelloWorld/**'
   pull_request:
     branches: [ "main" ]
+    paths:
+      - 'HelloWorld/HelloWorld/**'
 
 permissions:
   contents: write
