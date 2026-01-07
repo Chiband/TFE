@@ -12,7 +12,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/weatherforecast", () =>
+app.MapGet("/hello", () =>
 {
     return "Hello, World!";
 });
