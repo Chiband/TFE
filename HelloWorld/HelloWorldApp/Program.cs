@@ -15,7 +15,8 @@ builder.Services
       {
           ValidateIssuer = true,
           ValidateLifetime = true,
-          ValidateIssuerSigningKey = true
+          ValidateIssuerSigningKey = true,
+          ValidateAudience = false
       };
 
       options.RequireHttpsMetadata = false;
