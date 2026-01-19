@@ -9,11 +9,9 @@ builder.Services
   .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
   .AddJwtBearer(options =>
   {
-      options.Authority = "http://localhost:30083/realms/tfe";
+      options.Authority = "http://keycloack:8080/realms/tfe";
 
       options.Audience = "account";
-
-      options.MetadataAddress = "http://keycloack:8080/realms/tfe/.well-known/openid-configuration";
 
       options.TokenValidationParameters = new TokenValidationParameters
       {
