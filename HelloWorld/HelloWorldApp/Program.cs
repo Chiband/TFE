@@ -11,14 +11,12 @@ builder.Services
   {
       options.Authority = "http://keycloak:8080/realms/tfe";
 
-      options.Audience = "account";
-
       options.TokenValidationParameters = new TokenValidationParameters
       {
           ValidateIssuer = true,
           ValidateLifetime = true,
           ValidateIssuerSigningKey = true,
-          ValidateAudience = true
+          ValidateAudience = false
       };
 
       options.RequireHttpsMetadata = false;
