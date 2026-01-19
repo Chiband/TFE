@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,11 +10,11 @@ builder.Services
   .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
   .AddJwtBearer(options =>
   {
-      options.Authority = "http://keycloak.local:30083/realms/tfe";
+      options.Authority = "http://keycloak:30083/realms/tfe";      
 
       options.TokenValidationParameters = new TokenValidationParameters
       {
-          ValidateIssuer = true,
+          ValidateIssuer = false,
           ValidateLifetime = true,
           ValidateIssuerSigningKey = true,
           ValidateAudience = false
