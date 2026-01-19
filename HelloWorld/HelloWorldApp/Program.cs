@@ -1,8 +1,33 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
 
+builder.Services
+  .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+  .AddJwtBearer(options =>
+  {
+      options.Authority = "http://localhost:30083/realms/tfe";
+
+      options.TokenValidationParameters = new TokenValidationParameters
+      {
+          ValidateIssuer = true,
+          ValidateLifetime = true,
+          ValidateIssuerSigningKey = true
+      };
+
+      options.RequireHttpsMetadata = false;
+  });
+
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
+
+app.UseAuthentication();
+
+app.UseAuthorization();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -14,7 +39,8 @@ app.UseHttpsRedirection();
 
 app.MapGet("/hello", () =>
 {
+    Console.WriteLine("test");
     return "Hello, World!";
-});
+}).RequireAuthorization();
 
 app.Run();
