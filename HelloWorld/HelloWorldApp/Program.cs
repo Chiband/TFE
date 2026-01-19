@@ -39,8 +39,12 @@ app.UseHttpsRedirection();
 
 app.MapGet("/hello", () =>
 {
-    Console.WriteLine("test");
     return "Hello, World!";
+}).RequireAuthorization();
+
+app.MapGet("/test", () =>
+{
+    return "Test!";
 }).RequireAuthorization();
 
 app.Run();
