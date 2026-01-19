@@ -9,7 +9,7 @@ builder.Services
   .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
   .AddJwtBearer(options =>
   {
-      options.Authority = "http://keycloak:8080/realms/tfe";
+      options.Authority = "http://keycloak.local:30083/realms/tfe";
 
       options.TokenValidationParameters = new TokenValidationParameters
       {

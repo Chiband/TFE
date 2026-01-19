@@ -13,8 +13,17 @@ spec:
         - start-dev
       ports:
         - containerPort: 8080
-      env:
-        - name: KC_BOOTSTRAP_ADMIN_USERNAME
-          value: admin
-        - name: KC_BOOTSTRAP_ADMIN_PASSWORD
-          value: admin
+  env:
+  - name: KC_BOOTSTRAP_ADMIN_USERNAME
+    value: admin
+  - name: KC_BOOTSTRAP_ADMIN_PASSWORD
+    value: admin
+
+  - name: KC_HOSTNAME
+    value: keycloak.local
+  - name: KC_HOSTNAME_PORT
+    value: "30083"
+  - name: KC_HOSTNAME_STRICT
+    value: "false"
+  - name: KC_PROXY
+    value: edge
