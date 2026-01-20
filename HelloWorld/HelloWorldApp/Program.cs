@@ -16,7 +16,8 @@ builder.Services
       options.TokenValidationParameters = new TokenValidationParameters
       {
           ValidateIssuer = true,
-          ValidateAudience = false,
+          ValidateAudience = true,
+          ValidAudience= "private-api-test",
           ValidateLifetime = true,
           ValidateIssuerSigningKey = true
       };
