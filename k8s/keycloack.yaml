@@ -31,3 +31,5 @@ spec:
               value: "true"
             - name: KC_PROXY
               value: edge
+            - name: KC_HOSTNAME_PORT
+              value: "8888"
