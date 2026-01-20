@@ -10,13 +10,13 @@ builder.Services
   .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
   .AddJwtBearer(options =>
   {
-      options.Authority = "http://keycloak:8080/realms/tfe";
+      options.Authority = "http://keycloak.local:8080/realms/tfe";
       options.RequireHttpsMetadata = false;
 
       options.TokenValidationParameters = new TokenValidationParameters
       {
           ValidateIssuer = true,
-          ValidIssuer = "http://keycloak.local:8888/realms/tfe",
+          ValidIssuer = "http://keycloak.local:8080/realms/tfe",
           ValidateAudience = false,
           ValidateLifetime = true,
           ValidateIssuerSigningKey = true
