@@ -10,13 +10,12 @@ builder.Services
   .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
   .AddJwtBearer(options =>
   {
-      options.Authority = "http://keycloak.local:8888/realms/tfe";
+      options.Authority = "http://keycloak-service.tfe.svc.cluster.local/realms/tfe/.well-known/openid-configuration/realms/tfe";
       options.RequireHttpsMetadata = false;
 
       options.TokenValidationParameters = new TokenValidationParameters
       {
           ValidateIssuer = true,
-          ValidIssuer = "http://keycloak.local:8888/realms/tfe",
           ValidateAudience = false,
           ValidateLifetime = true,
           ValidateIssuerSigningKey = true
