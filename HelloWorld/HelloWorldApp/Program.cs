@@ -10,7 +10,7 @@ builder.Services
   .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
   .AddJwtBearer(options =>
   {
-      options.Authority = "http://keycloak-service.tfe.svc.cluster.local/realms/tfe/.well-known/openid-configuration/realms/tfe";
+      options.Authority = "http://keycloak-service:8080/realms/tfe/.well-known/openid-configuration";
       options.RequireHttpsMetadata = false;
 
       options.TokenValidationParameters = new TokenValidationParameters
