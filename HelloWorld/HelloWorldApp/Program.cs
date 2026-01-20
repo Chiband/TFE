@@ -24,7 +24,6 @@ builder.Services
 
 builder.Services.AddAuthorization();
 
-builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -38,7 +37,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.MapGet("/hello", () =>
 {
@@ -48,6 +47,6 @@ app.MapGet("/hello", () =>
 app.MapGet("/test", () =>
 {
     return "Test!";
-}).RequireAuthorization();
+}).AllowAnonymous();
 
 app.Run();
